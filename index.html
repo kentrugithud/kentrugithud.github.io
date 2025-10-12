@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kent Corp - Разработчик приложений и игр</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #e94560;
+            --light-color: #0f3460;
+            --dark-color: #0d0d1a;
+            --text-color: #e6e6e6;
+            --bg-color: #121212;
+            --card-bg: #1e1e2e;
+            --border-color: #333344;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #d6304e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: var(--text-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+        
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-link i {
+            margin-right: 8px;
+            font-size: 1.5rem;
+        }
+        
+        .projects {
+            background-color: var(--dark-color);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            background-color: var(--primary-color);
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .project-tech {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .project-description {
+            margin-bottom: 20px;
+            color: #cccccc;
+        }
+        
+        .download-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .download-link {
+            display: block;
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .download-link:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .comments-section {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-link {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>Kent Corp</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">О разработчике</a></li>
+                        <li><a href="#projects">Проекты</a></li>
+                        <li><a href="#comments">Комментарии</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Kent Corp</h1>
+            <p>Разработчик приложений и игр для различных платформ. Создаю интересные проекты, которые делают жизнь веселее и удобнее.</p>
+            <a href="#projects" class="btn">Смотреть проекты</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">О разработчике</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Kent - Это Российский школьник который создал приложение PrankMasterPro и т.д.</p>
+                    <p>:)</p>
+                    <p>Следите за моими обновлениями и новыми проектами в социальных сетях:</p>
+                    
+                    <div class="social-links">
+                        <a href="https://t.me/kentrutg" class="social-link" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                            <span>Telegram</span>
+                        </a>
+                        <a href="https://www.youtube.com/@Kent.ruyocor" class="social-link" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@kentrutiktok" class="social-link" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                            <span>TikTok (основной)</span>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                            <span>TikTok (обновления)</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Разработчик">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Мои проекты</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/prank.png?raw=true" alt="PrankerMasterPro">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">PrankerMasterPro</h3>
+                        <div class="project-tech">Написан на: Python</div>
+                        <p class="project-description">Приложение для пранка друзей. Выбирай тип пранка, настрой и создай бат-файл. Когда друг откроет файл, произойдёт пранк. Можно поменять ярлык, например, на Steam или Chrome.</p>
+                        <div class="download-links">
+                            <a href="https://github.com/kentrugithud/Pranker/releases/download/1.3.0/PrankMaster_Pro_Setup.exe" class="download-link">Скачать с этого сайта</a>
+                            <a href="https://prankerpro.github.io/" class="download-link">Скачать с официального сайта</a>
+                            <a href="https://zoro-game.store/pages/game/game.html?id=25" class="download-link">Скачать с zoro-game.store</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/icotsa.png?raw=true" alt="Статистика TikTok">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Статистика TikTok</h3>
+                        <div class="project-tech">Написан на: C++ и Java</div>
+                        <p class="project-description">Программа для просмотра статистики TikTok: сколько видео посмотрел, сколько лайкнул и т.д. Для использования нужно скачать данные из TikTok: зайти в профиль → три полоски → настройки → конфиденциальность → аккаунт → скачать ваши данные. Запросить данные и подождать 5 часов или сутки, затем скачать ZIP и загрузить в приложение.</p>
+                        <div class="download-links">
+                            <a href="https://github.com/kentrugithud/-/releases/download/1.0/app-release.apk" class="download-link">Скачать с этого сайта</a>
+                            <a href="https://www.rustore.ru/catalog/app/com.kentcorp.tiktokstats" class="download-link">Скачать с Rustore</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/15p.png?raw=true" alt="Пятнашки">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Пятнашки</h3>
+                        <div class="project-tech">Написан на: Python (Windows), Java и C++ (Android)</div>
+                        <p class="project-description">Классическая головоломка, где нужно перемещать кубики с цифрами, чтобы выстроить их по порядку. Увлекательная игра для развития логического мышления. (Приложение больше не будет обновляться)</p>
+                        <div class="download-links">
+                            <a href="https://github.com/kentrugithud/15-puzzle-/releases/download/game/15.puzzle.64x.exe" class="download-link">Скачать для Windows</a>
+                            <a href="https://github.com/kentrugithud/15-puzzle-/releases/download/apk/15.puzzle.apk" class="download-link">Скачать для Android</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comments">
+        <div class="container">
+            <h2 class="section-title">Комментарии</h2>
+            <div class="comments-section">
+                <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-discussion="kentotzub/3" data-comments-limit="5" data-color="343638" data-dark-color="FFFFFF"></script>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Kent Corp. Все права защищены.</p>
+            <p>Разработчик приложений и игр</p>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Анимация появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.project-card, .about-text, .about-image').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
