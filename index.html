@@ -223,6 +223,20 @@
             gap: 30px;
         }
         
+        /* Стиль для размещения двух проектов в ряд на больших экранах */
+        .projects-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .project-card {
             background-color: var(--card-bg);
             border-radius: 10px;
@@ -401,7 +415,7 @@
             <h2 class="section-title">О разработчике</h2>
             <div class="about-content">
                 <div class="about-text">
-                <p>Kent - Это обычный разработчик из города Рубцовска</p>
+                    <p>Kent - Это обычный разработчик из города Рубцовска</p>
                     <p>Следите за моими обновлениями и новыми проектами в социальных сетях:</p>
                     
                     <div class="social-links">
@@ -421,10 +435,10 @@
                             <i class="fab fa-youtube"></i>
                             <span>YouTube(Основной)</span>
                         </a>
-                        
                     </div>
                 </div>
                 <div class="about-image">
+                    <!-- Здесь может быть ваше фото -->
                 </div>
             </div>
         </div>
@@ -433,8 +447,9 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Мои проекты</h2>
+            
+            <!-- Статистика TikTok (отдельная карточка) -->
             <div class="project-grid">
-                <!-- Статистика TikTok слева -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/icot.png?raw=true" alt="Статистика TikTok">
@@ -446,13 +461,14 @@
                         <div class="download-links">
                             <a href="https://github.com/kentrugithud/3tiktakStativyhy/releases/download/2.5/app-release.apk" class="download-link">Скачать с этого сайта</a>
                             <a href="https://www.rustore.ru/catalog/app/com.kentcorp.tiktokstats" class="download-link">RuStore</a>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- PrankMasterPro справа -->
+            </div>
+            
+            <!-- PrankMasterPro и Runstore в ряд -->
+            <div class="projects-row">
+                <!-- PrankMasterPro -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/26prank.png?raw=true" alt="PrankerMasterPro">
@@ -463,13 +479,13 @@
                         <p class="project-description">Приложение для пранка друзей. Выбирай тип пранка, настрой и создай бат-файл. Когда друг откроет файл, произойдёт пранк. Можно поменять ярлык, например, на Steam или Chrome.</p>
                         <div class="download-links">
                             <a href="https://github.com/kentrugithud/Pranker/releases/download/1.4.0/PrankMaster_Setup.exe" class="download-link">Скачать с этого сайта</a>
-                            <a href="https://github.com/kentrugithud/Pranker/releases" class="download-link">Скачать с репозитория</a>
+                            <a href="https://github.com/kentrugithud/Pranker/releases" class="download-link">Скачать с репозиторий</a>
                             <a href="https://zoro-game.store/pages/game/game.html?id=25" class="download-link">zoro-game.store</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Runstore проект (новый) -->
+                <!-- Runstore проект -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/logorunstore.png?raw=true" alt="Runstore">
@@ -546,7 +562,3 @@
     </script>
 </body>
 </html>
-
-
-
-
