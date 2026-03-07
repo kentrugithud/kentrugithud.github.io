@@ -4,161 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kent Corp - Разработчик приложений и игр</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary-color: #1a1a2e;
-            --secondary-color: #16213e;
-            --accent-color: #e94560;
-            --dark-color: #0d0d1a;
-            --bg-color: #121212;
-            --card-bg: #1e1e2e;
-            --border-color: #333344;
-            --text-color: #e6e6e6;
-        }
-
-        body {
-            background: var(--bg-color);
-            color: var(--text-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .hero {
-            padding: 100px 20px;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
-            url("https://images.unsplash.com/photo-1555066931-4365d14bab8c");
-            background-size: cover;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-        }
-
-        .projects {
-            background: var(--dark-color);
-        }
-
-        /* === ГЛАВНОЕ ИСПРАВЛЕНИЕ === */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: transform .3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-title {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .project-tech {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .download-links a {
-            display: block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: var(--dark-color);
-        }
-    </style>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
     <div class="container header-content">
-        <div><i class="fas fa-code"></i> Kent Corp</div>
+        <div class="logo"><span class="logo-icon">&lt;/&gt;</span> Kent Corp</div>
         <nav>
             <ul>
                 <li><a href="#projects">Проекты</a></li>
+                <li><a href="https://t.me/kentrutg" target="_blank">Мой тг</a></li>
+                <li><a href="https://www.tiktok.com/@kurtcobain1994271?_r=1&_t=ZP-93O1RYBS8oJ" target="_blank">Мой Тикток</a></li>
+                <li><a href="https://dalink.to/kentrudan" target="_blank">Поддержать проект</a></li>
             </ul>
         </nav>
     </div>
@@ -175,10 +34,9 @@
 
         <div class="project-grid">
 
-            <!-- TikTok -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/icot.png?raw=true">
+                    <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/icot.png?raw=true" alt="TikTok Stats">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Статистика TikTok (Android)</h3>
@@ -191,25 +49,24 @@
                 </div>
             </div>
 
-             <div class="project-card">
+            <div class="project-card">
                 <div class="project-image">
-                    <img src="https://github.com/kentrugithud/reportday/blob/main/ic_launcher-playstore.png?raw=true">
+                    <img src="https://github.com/kentrugithud/reportday/blob/main/ic_launcher-playstore.png?raw=true" alt="Report Day">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Отчёт дня(Android)</h3>
-                    <div class="project-tech">C++ / kotlin</div>
-                    <p>Приложения отчёт дня отчитывает дня как пользоваться: Пишем например: день рождения Дата:(ваш месяц и число год 2026 или 2027 и т.д) Время:(во сколько время будет приходить каждый день уведомления) (Можно не только день рождения что захотите можно создавать несколько)</p>
+                    <h3 class="project-title">Отчёт дня (Android)</h3>
+                    <div class="project-tech">C++ / Kotlin</div>
+                    <p>Приложение напоминает о важных событиях (день рождения и др.) в заданное время.</p>
                     <div class="download-links">
                         <a href="https://github.com/kentrugithud/reportday/releases/download/1.0/app-release.apk">Скачать APK</a>
-                        <a href="">RuStore</a>
+                        <a href="#">RuStore</a>
                     </div>
                 </div>
             </div>
 
-            <!-- PrankerMasterPro СПРАВА -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/26prank.png?raw=true">
+                    <img src="https://github.com/kentrugithud/kentrugithud.github.io/blob/main/26prank.png?raw=true" alt="PrankMaster">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">PrankerMasterPro (Windows)</h3>
@@ -222,6 +79,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -232,12 +90,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
