@@ -1,40 +1,47 @@
-body {
-    background: black;
+body, html {
+    background-color: black;
     color: white;
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
     overflow: hidden;
-    font-family: 'Courier New', monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-#container {
+#wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 #ascii {
-    /* Эти параметры важны для плотности картинки */
-    line-height: 6px; 
-    font-size: 8px;
-    
+    /* Настройки для ПК */
+    font-size: 10px;
+    line-height: 8px;
     white-space: pre;
     cursor: pointer;
     user-select: none;
-    
-    /* Магия адаптивности: если экран меньше, ASCII уменьшится */
-    transform-origin: center;
+    text-align: center;
 }
 
-/* Настройки для мобилок (если экран узкий) */
-@media (max-width: 600px) {
+/* Настройки для телефонов (экраны меньше 768px) */
+@media (max-width: 768px) {
     #ascii {
-        font-size: 4px; /* Уменьшаем базовый шрифт */
+        font-size: 4px;
         line-height: 3px;
+    }
+}
+
+/* Совсем маленькие экраны */
+@media (max-width: 480px) {
+    #ascii {
+        font-size: 3px;
+        line-height: 2.5px;
     }
 }
