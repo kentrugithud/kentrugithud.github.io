@@ -12,6 +12,26 @@ body, html {
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* Стили кнопки Назад */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    color: rgba(255, 255, 255, 0.5); /* Полупрозрачная */
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    color: white;
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
 #wrapper {
     display: flex;
     align-items: center;
@@ -21,7 +41,6 @@ body, html {
 }
 
 #ascii {
-    /* Настройки для ПК */
     font-size: 10px;
     line-height: 8px;
     white-space: pre;
@@ -30,15 +49,19 @@ body, html {
     text-align: center;
 }
 
-/* Настройки для телефонов (экраны меньше 768px) */
 @media (max-width: 768px) {
     #ascii {
         font-size: 4px;
         line-height: 3px;
     }
+    .back-button {
+        top: 10px;
+        left: 10px;
+        font-size: 12px;
+        padding: 5px 10px;
+    }
 }
 
-/* Совсем маленькие экраны */
 @media (max-width: 480px) {
     #ascii {
         font-size: 3px;
